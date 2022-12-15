@@ -8,10 +8,10 @@ function Header() {
       <span className='header'> React Context API Tutorial</span>
       <ul className='nav'>
         <li>
-          <Link to='/'>Home Page</Link>
+          <Link to='/home'>Home Page</Link>
         </li>
         <li >
-          <Link to= "/cart"></Link>
+          <Link to= "/cart">Cart</Link>
         </li>
       </ul>
   
