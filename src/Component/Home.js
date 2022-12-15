@@ -1,5 +1,6 @@
 import React from 'react'
 import { faker } from '@faker-js/faker';
+import {uuid} from uuid;
 
 const Home = () =>{
   const productsArray=[...Array(20)].map(()=>({
