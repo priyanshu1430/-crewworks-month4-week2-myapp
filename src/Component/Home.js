@@ -1,21 +1,29 @@
-import React from 'react'
-import { faker } from '@faker-js/faker';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState } from "react";
+import { faker } from "@faker-js/faker";
+import { v4 as uuidv4 } from "uuid";
+import SingleProduct from "./SingleProduct";
+import "./Style.css"
 
-const Home = () =>{
-  const productsArray=[...Array(20)].map(()=>({
-    id: faker.dataype.uuid(),
+faker.seed(100);
+
+
+
+const Home = ({cart, setCart}) => {
+  const productsArray = [...Array(20)].map(() => ({
+    id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
-    image: faker.random.image(),
+    image: faker.image.image(),
+  }));
+  
+  
 
-  })
-  );
-  console.log(productsArray);
-
+  const [products] = useState(productsArray)
+  
   return <div className="productContainer">
-    
-  </div>
-}
-
-export default Home
+    {products.map((prod) =>(
+      <SingleProduct prod={prod} cart={cart} setCart={setCart} key={prod.id}/>
+    ))}
+  </div>;
+};
+export default Home;
